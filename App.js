@@ -1,21 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { Provider } from "react-redux";
 
-export default function App() {
+import Home from "./screens/Home";
+import Blog from "./screens/Blog";
+import BlogDetails from "./screens/BlogDetails";
+import store from "./redux/store";
+
+const Stack = createStackNavigator();
+
+function NavStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#621FF7",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      >
+        <Stack.Screen
+          name="Inicio"
+          component={Home}
+          options={{ title: "Inicio" }}
+        />
+        <Stack.Screen
+          name="Evento"
+          component={Blog}
+          options={{ title: "Información Evento" }}
+        />
+        <Stack.Screen
+          name="AddEvento"
+          component={BlogDetails}
+          options={{ title: "Agregar Evento" }}
+        />
+      </Stack.Navigator>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <NavStack />
+    </NavigationContainer>
+  );
+}
