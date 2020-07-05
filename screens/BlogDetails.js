@@ -21,7 +21,7 @@ class BlogDetails extends Component {
 
   agregarParticipante = () => {
     if (this.state.participante == "") {
-      Alert.alert("Debe ingresar un valor primero");
+      Alert.alert("Debe ingresar un nombre del participante primero");
     } 
     else {
       let nuevoParticipante = {
@@ -39,6 +39,12 @@ class BlogDetails extends Component {
   };
 
   agregarEvento = () => {
+    if (this.state.evento == "") {
+      Alert.alert("Debe ingresar un nombre de evento primero");
+    } else if (this.state.valorArray == 0) {
+      Alert.alert("El evento debe tener al menos un participante");
+    }
+    else{
     let event = {
       idEvento: 1,
       nombreEvento: this.state.evento,
@@ -50,6 +56,7 @@ class BlogDetails extends Component {
     console.log("PROPS EVENTOS");
     console.log(this.props.eventos.eventos);
     this.props.navigation.navigate("Inicio");
+  }
   };
 
   handleParticipante = (text) => {

@@ -97,7 +97,8 @@ class Blog extends Component {
         <View style={styles.listita}>
           <Text
             style={{
-              marginTop: 35,
+              marginTop: 5,
+              marginBottom: 5,
               fontWeight: "bold",
               fontSize: 40,
               textAlign: "center",
@@ -109,8 +110,8 @@ class Blog extends Component {
           </Text>
           <Text
             style={{
-              marginTop: 20,
-              marginBottom: 10,
+              marginTop: 15,
+              marginBottom: 5,
               fontWeight: "bold",
               fontSize: 25,
               textAlign: "center",

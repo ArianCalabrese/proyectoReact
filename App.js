@@ -33,12 +33,12 @@ function NavStack() {
         <Stack.Screen
           name="Evento"
           component={Blog}
-          options={{ title: "Información Evento" }}
+          options={{ title: "Información evento" }}
         />
         <Stack.Screen
           name="AddEvento"
           component={BlogDetails}
-          options={{ title: "Agregar Evento" }}
+          options={{ title: "Agregar evento" }}
         />
       </Stack.Navigator>
     </Provider>

@@ -64,7 +64,8 @@ class Home extends Component {
       <View style={{ flex: 1, paddingTop: 20, backgroundColor: "#34495E" }}>
         <Text
           style={{
-            marginTop: 40,
+            marginTop: 10,
+            marginBottom: 10,
             fontWeight: "bold",
             fontSize: 40,
             textAlign: "center",
