@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
@@ -27,10 +26,6 @@ class Home extends Component {
   ejemplofuncion = () => {
     let asdasd = this.props.eventos.eventos;
     this.state.lista = asdasd;
-    console.log("HOLA");
-    console.log(asdasd);
-    console.log(this.state.lista);
-    console.log("HOLA");
   };
   render() {
 
@@ -38,15 +33,7 @@ class Home extends Component {
 
     this.ejemplofuncion();
 
-    console.log("ESTADO LISTA");
-    console.log(this.state.lista);
-    console.log(this.props.eventos);
-    console.log("ESTADO PROP REDUX");
-
     const nuevoArray = this.state.lista.map((item, key) => {
-      console.log("REPITE?");
-      console.log(item);
-      console.log(key);
       let confirmados = item.participantes.filter(participante => participante.estado === true);
       return (
         <TouchableOpacity
@@ -54,7 +41,7 @@ class Home extends Component {
           onPress={() => this.props.navigation.navigate("Evento", { key })}
         >
           <View key={key} style={styles.viewHolder}>
-            <Text style={{color: "white"}} >{item.nombreEvento} ({confirmados.length}/{item.participantes.length} partic.)</Text>
+            <Text style={{ color: "white" }} >{item.nombreEvento} ({confirmados.length}/{item.participantes.length} partic.)</Text>
           </View>
         </TouchableOpacity>
       );

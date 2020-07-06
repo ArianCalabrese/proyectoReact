@@ -29,8 +29,6 @@ class Blog extends Component {
       idParticipante
     ];
 
-    console.log(this.state.lista.length);
-
     if (this.props.eventos.eventos[idEvento].participantes.length === 1) {
       if (this.state.lista.length === 0) {
         this.state.lista = [...this.state.lista, participante];
@@ -47,9 +45,9 @@ class Blog extends Component {
   SwitchGo(num, e) {
     const lista = [...this.state.lista];
     lista[num].estado = !lista[num].estado;
-      if (lista[num].estado === true) {
-        Vibration.vibrate(500);
-      }
+    if (lista[num].estado === true) {
+      Vibration.vibrate(500);
+    }
     this.setState({ lista });
   };
 
@@ -66,31 +64,26 @@ class Blog extends Component {
       identificador
     ].participantes.map((item, key) => {
       this.ejemplofuncion(identificador, key);
-      console.log("ESTO ES NOMBRE PARTICIPANTE");
-      console.log(item.nombreParticipante);
       return (
         <View style={styles.container1}>
-          <Text style={{ fontSize: 15, fontWeight: "bold", color: "white"}}>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color: "white" }}>
             {item.nombreParticipante}
           </Text>
           <Switch
             key={key}
             disabled={false}
-            style={{ marginRight: 0 }}
+            style={{ alignContent: "flex-end", justifyContent: "flex-end" }}
             value={this.state.lista[key].estado}
             onValueChange={this.SwitchGo.bind(this, key)}
           />
         </View>
       );
     });
-    console.log("LISTA DE ESTADOS");
 
     this.state.lista = this.state.lista.slice(
       0,
       this.props.eventos.eventos[identificador].participantes.length
     );
-
-    console.log(this.state.lista);
 
     return (
       <View style={styles.container}>
@@ -105,8 +98,7 @@ class Blog extends Component {
               color: "white",
             }}
           >
-          {/* nombre del evento */}
-            Evento: {this.props.eventos.eventos[this.state.idEvento].nombreEvento} 
+            Evento: {this.props.eventos.eventos[this.state.idEvento].nombreEvento}
           </Text>
           <Text
             style={{

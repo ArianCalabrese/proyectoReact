@@ -23,9 +23,6 @@ const default_event_state = {
 const event_reducer = (state = default_event_state, action) => {
   switch (action.type) {
     case AGREGAR_EVENTO: {
-      console.log(state.eventos);
-            console.log("ESTADO");
-
       return {
         ...state,
         eventos: [...state.eventos, action.payload],
@@ -38,12 +35,7 @@ const event_reducer = (state = default_event_state, action) => {
       };
     }
     case CAMBIAR_ASISTENCIA: {
-      //state[action.payload.idEvento].participantes = action.payload.valoresEstadoParticipante;
       const hola = state.eventos[action.payload.idEvento].participantes;
-      console.log("COMIDA");
-      console.log({hola});
-      //console.log(action.payload.valoresEstadoParticipante);
-      console.log("COMIDA");
       return {
         ...state,
         eventos: [...state.eventos],

@@ -22,7 +22,7 @@ class BlogDetails extends Component {
   agregarParticipante = () => {
     if (this.state.participante == "") {
       Alert.alert("Debe ingresar un nombre del participante primero");
-    } 
+    }
     else {
       let nuevoParticipante = {
         indiceParticipante: this.indice,
@@ -44,19 +44,17 @@ class BlogDetails extends Component {
     } else if (this.state.valorArray == 0) {
       Alert.alert("El evento debe tener al menos un participante");
     }
-    else{
-    let event = {
-      idEvento: 1,
-      nombreEvento: this.state.evento,
-      participantes: this.state.valorArray,
-    };
+    else {
+      let event = {
+        idEvento: 1,
+        nombreEvento: this.state.evento,
+        participantes: this.state.valorArray,
+      };
 
 
-    this.props.agregar_evento_accion(event);
-    console.log("PROPS EVENTOS");
-    console.log(this.props.eventos.eventos);
-    this.props.navigation.navigate("Inicio");
-  }
+      this.props.agregar_evento_accion(event);
+      this.props.navigation.navigate("Inicio");
+    }
   };
 
   handleParticipante = (text) => {
@@ -105,7 +103,7 @@ class BlogDetails extends Component {
               style={styles.buttonDesign}
               onPress={this.agregarParticipante}
             >
-              <Text style={{color: "white"}} >AGREGAR</Text>
+              <Text style={{ color: "white" }} >AGREGAR</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -113,10 +111,10 @@ class BlogDetails extends Component {
           <View style={styles.contenedorParticipantes}>{arrayNuevo}</View>
         </ScrollView>
         <View>
-          <Button 
-          title="Confirmar Evento"
-          color="#1B1B3A" 
-          onPress={this.agregarEvento} />
+          <Button
+            title="Confirmar Evento"
+            color="#1B1B3A"
+            onPress={this.agregarEvento} />
         </View>
       </View>
     );
